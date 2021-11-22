@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- left leg of Unitree A1 -->
+<robot name="a1_left_leg">
+<link name="L_base">
+    
+</link>
+    
+<joint name="L_hip_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="L_base"/>
+    <child link="L_hip"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.802851455917" upper="0.802851455917" effort="33.5" velocity="21"/>
+</joint>
+
+<link name="L_hip">
+    
+</link>
+
+<joint name="L_thigh_joint" type="revolute">
+    <origin xyz="0 0.0838 0" rpy="0 0 0"/>
+    <parent link="L_hip"/>
+    <child link="L_thigh"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.0471975512" upper="4.18879020479" effort="33.5" velocity="21"/>
+</joint>
+
+<link name="L_thigh">
+    
+</link>
+
+<joint name="L_knee_joint" type="revolute">
+    <origin xyz="0 0 -0.2" rpy="0 0 0"/>
+    <parent link="L_thigh"/>
+    <child link="L_shank"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.69653369433" upper="-0.916297857297" effort="33.5" velocity="21"/>
+</joint>
+
+<link name="L_shank">
+    
+</link>
+
+<joint name="L_ankle_joint" type="fixed">
+    <origin xyz="0 0 -0.2" rpy="0 0 0"/>
+    <parent link="L_shank"/>
+    <child link="L_foot"/>
+</joint>
+
+<link name="L_foot">
+    
+</link>
+</robot>

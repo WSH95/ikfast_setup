@@ -16,6 +16,7 @@ function func1()
     python `openrave-config --python-dir`/openravepy/_openravepy_/ikfast.py --robot=$name.dae --iktype=translation3d --baselink=0 --eelink=4 --savefile=ikfast_$name.cpp
     cp /usr/local/lib/python2.7/dist-packages/openravepy/_openravepy_/ikfast.h .
     g++ ikfast_$name.cpp -o ikfast_$name -llapack -std=c++11
+    g++ -fPIC -lstdc++ -DIKFAST_NO_MAIN -DIKFAST_CLIBRARY -shared -Wl,-soname,ikfast_$name.so -o ikfast_$name.so ikfast_$name.cpp
     cd ..
   else
     echo "There is no $1 in current dir"
